@@ -44,6 +44,7 @@ const Login = ({GenerateToken}) =>
           name="Code"
           autoComplete="Code"
           autoFocus
+          color='secondary'
           onChange={(e) => setCode(e.target.value)}
         />
 
@@ -54,8 +55,8 @@ const Login = ({GenerateToken}) =>
 
         <Button
           variant="contained"
-          color="primary"
           type="submit"
+          color='secondary'
           disabled={!optCode}
           sx={{ marginTop: 2, marginBottom : 2 , display: "flex" }}
         >
@@ -69,7 +70,7 @@ const Login = ({GenerateToken}) =>
             </Link>
           </Grid>
           <Grid item>
-            <Link href="#" variant="body2">
+            <Link href="#" variant="body2"  sx = {{ color : 'secondary.main'}}>
               {"Don't have an account? Sign Up"}
             </Link>
           </Grid>
