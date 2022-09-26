@@ -1,2 +1,2 @@
-# Messaging-App
-A real time messaging app
+# Chat-Component
+A reat component, using signalR for real time messaging
