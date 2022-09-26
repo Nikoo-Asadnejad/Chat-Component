@@ -6,6 +6,7 @@ import { startTransition } from 'react';
 function App() {
 
   const sendCode = (phone) => console.log(phone);
+  
   return (
     <SendLoginCode sendCode = {sendCode} />
   );
