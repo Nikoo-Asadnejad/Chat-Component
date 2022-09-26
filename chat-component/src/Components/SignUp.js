@@ -26,7 +26,7 @@ const SignUp = ({ SignUp }) => {
         className="SignUp"
         onSubmit={(e) => {
           e.preventDefault();
-          SignUp(firstName , lastName ,phoneNumber);
+          SignUp(firstName, lastName, phoneNumber);
         }}
       >
         <Box
@@ -35,6 +35,13 @@ const SignUp = ({ SignUp }) => {
           noValidate
           sx={{ marginTop: 20, display: "flex", flexDirection: "column" }}
         >
+          <Grid align="center">
+            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <h2>Sign Up</h2>
+          </Grid>
+
           <TextField
             margin="normal"
             required
@@ -92,7 +99,7 @@ const SignUp = ({ SignUp }) => {
               <Link href="#" variant="body2"></Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2" sx = {{color : 'secondary'}}>
+              <Link href="#" variant="body2" sx={{ color: "secondary" }}>
                 {"Already have an account? Sign In"}
               </Link>
             </Grid>
