@@ -31,7 +31,7 @@ const SignUp = ({ SignUp }) => {
       >
         <Box
           component="form"
-          onSubmit={sendCode}
+          onSubmit={SignUp}
           noValidate
           sx={{ marginTop: 20, display: "flex", flexDirection: "column" }}
         >

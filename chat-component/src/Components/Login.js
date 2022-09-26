@@ -1,17 +1,33 @@
-import { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { useState } from "react";
+import * as React from "react";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline"
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+//import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+//import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { startTransition } from 'react';
+import { Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Login = ({GenerateToken}) =>
 {
     const [optCode, setCode] = useState();
 
     
-    return    <Container component="main" maxWidth="xs">
+    return  <Container component="main" maxWidth="xs">
     <Form
       className="GenerateToken"
       onSubmit={e => {
         e.preventDefault();
-        GenerateToken(OptCode);
+        GenerateToken(optCode);
       }} 
     >
       <Box component="form" 
@@ -40,7 +56,7 @@ const Login = ({GenerateToken}) =>
           variant="contained"
           color="primary"
           type="submit"
-          disabled={!phoneNumber}
+          disabled={!optCode}
           sx={{ marginTop: 2, marginBottom : 2 , display: "flex" }}
         >
           Login

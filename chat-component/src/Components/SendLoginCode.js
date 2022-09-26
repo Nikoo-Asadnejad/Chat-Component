@@ -1,20 +1,15 @@
 import { useState } from "react";
 import * as React from "react";
-
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-//import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from "@mui/material/Typography";
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Container from "@mui/material/Container";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Form } from "react-bootstrap";
+
 
 const SendLoginCode = ({ sendCode }) => {
   const [phoneNumber, setPhone] = useState();
@@ -28,10 +23,19 @@ const SendLoginCode = ({ sendCode }) => {
           sendCode(phoneNumber);
         }}
       >
-        <Box component="form" 
-             onSubmit={sendCode} 
-             noValidate 
-             sx={{ marginTop: 20  , display: 'flex' , flexDirection:'column' }}>
+        <Box
+          component="form"
+          onSubmit={sendCode}
+          noValidate
+          sx={{ marginTop: 20, display: "flex", flexDirection: "column" }}
+        >
+          <Grid align="center">
+            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <h2>Sign In</h2>
+          </Grid>
+
           <TextField
             margin="normal"
             required
@@ -42,39 +46,34 @@ const SendLoginCode = ({ sendCode }) => {
             name="phoneNumber"
             autoComplete="phone"
             autoFocus
-          
+            color="secondary"
             onChange={(e) => setPhone(e.target.value)}
           />
 
-
           <Button
             variant="contained"
-            color="primary"
+            color='secondary'
             type="submit"
             disabled={!phoneNumber}
-            sx={{ marginTop: 2, marginBottom : 2 , display: "flex" }}
+            sx={{ marginTop: 2, marginBottom: 2, display: "flex" }}
           >
             SendCode
           </Button>
 
           <Grid container>
             <Grid item xs>
-              <Link href="#" variant="body2">
-                
-              </Link>
+          
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="#" variant="body2" sx ={{color : 'secondary.main'}}>
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>
           </Grid>
         </Box>
-
       </Form>
     </Container>
   );
 };
-
 
 export default SendLoginCode;
