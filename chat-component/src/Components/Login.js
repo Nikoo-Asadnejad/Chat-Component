@@ -64,7 +64,7 @@ const Login = ({ GenerateToken }) => {
             disabled={!optCode}
             sx={{ marginTop: 2, marginBottom: 2, display: "flex" }}
           >
-            Login
+            Sign In
           </Button>
 
           <Grid container>
@@ -84,3 +84,8 @@ const Login = ({ GenerateToken }) => {
     </Container>
   );
 };
+
+
+
+
+export default Login;
