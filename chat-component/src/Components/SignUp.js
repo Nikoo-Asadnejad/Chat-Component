@@ -45,6 +45,7 @@ const SignUp = ({ SignUp }) => {
             name="firstName"
             autoComplete="FirstName"
             autoFocus
+            color="secondary"
             onChange={(e) => setFirstName(e.target.value)}
           />
 
@@ -56,6 +57,7 @@ const SignUp = ({ SignUp }) => {
             id="lastName"
             label="Last Name"
             name="lastName"
+            color="secondary"
             autoComplete="Last Name"
             autoFocus
             onChange={(e) => setLastName(e.target.value)}
@@ -66,6 +68,7 @@ const SignUp = ({ SignUp }) => {
             required
             placeholder="phoneNumber"
             fullWidth
+            color="secondary"
             id="phone"
             label="Phone Number"
             name="phoneNumber"
@@ -76,7 +79,7 @@ const SignUp = ({ SignUp }) => {
 
           <Button
             variant="contained"
-            color="primary"
+            color="secondary"
             type="submit"
             disabled={!phoneNumber}
             sx={{ marginTop: 2, marginBottom: 2, display: "flex" }}
@@ -89,7 +92,7 @@ const SignUp = ({ SignUp }) => {
               <Link href="#" variant="body2"></Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="#" variant="body2" sx = {{color : 'secondary'}}>
                 {"Already have an account? Sign In"}
               </Link>
             </Grid>
