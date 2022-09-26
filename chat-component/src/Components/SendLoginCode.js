@@ -42,13 +42,10 @@ const SendLoginCode = ({ sendCode }) => {
             name="phoneNumber"
             autoComplete="phone"
             autoFocus
+          
             onChange={(e) => setPhone(e.target.value)}
           />
 
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
 
           <Button
             variant="contained"
@@ -63,7 +60,7 @@ const SendLoginCode = ({ sendCode }) => {
           <Grid container>
             <Grid item xs>
               <Link href="#" variant="body2">
-                Forgot password?
+                
               </Link>
             </Grid>
             <Grid item>
