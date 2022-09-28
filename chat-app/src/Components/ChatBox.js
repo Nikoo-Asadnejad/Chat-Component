@@ -1,15 +1,16 @@
 import "../App.css";
 import { MarkChatUnread, Send } from "@mui/icons-material";
-import { Fab, TextField, Box, Fade ,Grid} from "@mui/material";
+import { Fab, TextField, Box, Fade, Grid, Avatar } from "@mui/material";
 import { Button, Container } from "react-bootstrap";
 import { alpha, styled } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
 import IconButton from "@mui/material/IconButton";
+//import SupervisorAccountRoundedIcon from '@material-ui/icons/SupervisorAccountRounded';
 
-const CssTextField = styled(InputBase)(({ theme }) => ({
+const MessageInput = styled(InputBase)(() => ({
   "label + &": {
-    marginTop: theme.spacing(3),
+    marginTop: "2px",
   },
   "& .MuiInputBase-input": {
     borderRadius: "17px",
@@ -25,7 +26,7 @@ const CssTextField = styled(InputBase)(({ theme }) => ({
     },
     "&:focus": {
       width: "100%",
-      boxShadow: "0 0 4px darkgray",
+      boxShadow: "0 0 5px darkgray",
       opacity: [0.6, 0.6, 0.6],
     },
   },
@@ -76,15 +77,33 @@ const ChatBox = () => {
             opacity: "0.9",
           }}
         >
-       <Grid>
-
-       </Grid>
-
+          <Grid md={6} sx={{ margin: "5px" }}>
+            <Avatar
+              sx={{
+                display: "flex",
+                float: "left",
+                margin: "5px",
+                marginRight: "10px",
+                backgroundColor:'Deeppink'
+              }}
+            >
+              A
+            </Avatar>
+            <h3 style={{ margin: "10px", marginTop: "10px" }}>Admin</h3>
+            <p
+              style={{
+                marginTop: "-10px",
+                fontSize :'small'
+              }}
+            >
+              I'm here to answer to your questions.
+            </p>
+          </Grid>
         </Box>
 
-        <CssTextField
+        <MessageInput
           sx={{ width: "98%", bottom: "0px", margin: "4px", padding: "3px" }}
-        ></CssTextField>
+        ></MessageInput>
         <IconButton
           aria-label="sendRoundedIcon"
           color="secondary"
