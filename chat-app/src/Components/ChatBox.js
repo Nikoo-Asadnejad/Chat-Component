@@ -52,6 +52,7 @@ const connect = () => {
 const ChatBox = () => {
   
   const [isOpen, setIsOpen] = useState(false);
+  const [message, setMessage] = useState(false);
 
   const onClick = () => {
     setIsOpen((current) => !current);
@@ -71,8 +72,8 @@ const ChatBox = () => {
       <Box
         id="chatBox"
         sx={{
-          width: "40%",
-          height: "80%",
+          width: isOpen ?  "40%": "0px" ,
+          height: isOpen ? "80%"  : "0px",
           position: "fixed",
           right: "70px",
           bottom: "60px",
@@ -80,14 +81,12 @@ const ChatBox = () => {
           backgroundColor: "secondary.main",
           boxShadow: "0 0 15px darkgrey",
           padding: "2px",
-          marginRight: isOpen ? "0px" : "-580px",
-          marginBottom: isOpen ? "0px" : "-680px",
           opacity:isOpen ? "0.7" : "0",
-          transitionDuration : isOpen ? '0.4s' : '0s',
+          transitionDuration :isOpen ? '0.8s' : '0.5s',
           "&:hover": {
             opacity: "0.8",
             scale: "1.003",
-            transitionDuration: "0.7s",
+            transitionDuration: "0.6s",
           },
         }}
       >
@@ -136,15 +135,17 @@ const ChatBox = () => {
             padding: "3px",
             height: "10%",
           }}
+          onChange={(e) =>{ setMessage(e.target.value)}}
         ></MessageInput>
         <IconButton
           aria-label="sendRoundedIcon"
           color="secondary"
+          disabled={!message}
           sx={{
             zIndex: "1000",
             position: "absolute",
             right: "12px",
-            bottom: "11px",
+            bottom: "10px",
             opacity: "1 !important",
             "&:hover": {
               scale: "1.004",
