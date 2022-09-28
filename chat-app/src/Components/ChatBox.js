@@ -46,7 +46,7 @@ const connect = () => {
   });
 
   connection.Start();
-  connection.invoke("SendMessage");
+  connection.invoke("GetMessages");
 };
 
 const ChatBox = () => {
