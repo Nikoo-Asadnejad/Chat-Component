@@ -1,11 +1,13 @@
 import "../App.css";
 import { MarkChatUnread, Send } from "@mui/icons-material";
+import { useState } from "react";
 import { Fab, TextField, Box, Fade, Grid, Avatar } from "@mui/material";
 import { Button, Container } from "react-bootstrap";
 import { alpha, styled } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
 import IconButton from "@mui/material/IconButton";
+import { HubConnectionBuilder, LogLevel } from "@microsoft/signalr";
 //import SupervisorAccountRoundedIcon from '@material-ui/icons/SupervisorAccountRounded';
 
 const MessageInput = styled(InputBase)(() => ({
@@ -18,6 +20,7 @@ const MessageInput = styled(InputBase)(() => ({
     backgroundColor: "white",
     fontSize: 16,
     width: "100%",
+
     padding: "10px",
     "&:hover": {
       boxShadow: "0 0 4px grey",
@@ -32,14 +35,27 @@ const MessageInput = styled(InputBase)(() => ({
   },
 }));
 
-const onClick = () => {};
+// const connect = () => {
+//   var connection = new HubConnectionBuilder()
+//     .withUrl("http://localhost/5000/chat")
+//     .configureLogging(LogLevel.information)
+//     .build();
 
-const connect = ()=> {
-  
-};
+//   connection.on("RecieveMessage", (user, message) => {
+//     console.Log(message);
+//   });
 
+//   connection.Start();
+//   connection.invoke("SendMessage");
+// };
 
 const ChatBox = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const onClick = () => {
+    setIsOpen((current) => !current);
+  };
+
   return (
     <Container>
       <Fab
@@ -52,9 +68,10 @@ const ChatBox = () => {
       </Fab>
 
       <Box
+        id="chatBox"
         sx={{
-          width: "550px",
-          height: "600px",
+          width: "40%",
+          height: "80%",
           position: "fixed",
           right: "70px",
           bottom: "60px",
@@ -62,8 +79,10 @@ const ChatBox = () => {
           backgroundColor: "secondary.main",
           boxShadow: "0 0 15px darkgrey",
           padding: "2px",
-
-          opacity: "0.7",
+          marginRight: isOpen ? "0px" : "-580px",
+          marginBottom: isOpen ? "0px" : "-680px",
+          opacity:isOpen ? "0.7" : "0",
+          transitionDuration : isOpen ? '0.4s' : '0s',
           "&:hover": {
             opacity: "0.8",
             scale: "1.003",
@@ -90,7 +109,7 @@ const ChatBox = () => {
                 float: "left",
                 margin: "5px",
                 marginRight: "10px",
-                backgroundColor:'Deeppink'
+                backgroundColor: "Deeppink",
               }}
             >
               A
@@ -99,7 +118,7 @@ const ChatBox = () => {
             <p
               style={{
                 marginTop: "-10px",
-                fontSize :'small'
+                fontSize: "small",
               }}
             >
               I'm here to answer to your questions.
@@ -108,7 +127,14 @@ const ChatBox = () => {
         </Box>
 
         <MessageInput
-          sx={{ width: "98%", bottom: "0px", margin: "4px", padding: "3px" }}
+          sx={{
+            position: "absoloute",
+            width: "98%",
+            bottom: "2px",
+            margin: "4px",
+            padding: "3px",
+            height: "10%",
+          }}
         ></MessageInput>
         <IconButton
           aria-label="sendRoundedIcon"
@@ -117,7 +143,7 @@ const ChatBox = () => {
             zIndex: "1000",
             position: "absolute",
             right: "12px",
-            bottom: "13px",
+            bottom: "11px",
             opacity: "1 !important",
             "&:hover": {
               scale: "1.004",
