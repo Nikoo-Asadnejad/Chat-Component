@@ -33,6 +33,12 @@ const MessageInput = styled(InputBase)(() => ({
 }));
 
 const onClick = () => {};
+
+const connect = ()=> {
+  
+};
+
+
 const ChatBox = () => {
   return (
     <Container>
