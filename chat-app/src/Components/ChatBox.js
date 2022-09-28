@@ -35,21 +35,22 @@ const MessageInput = styled(InputBase)(() => ({
   },
 }));
 
-// const connect = () => {
-//   var connection = new HubConnectionBuilder()
-//     .withUrl("http://localhost/5000/chat")
-//     .configureLogging(LogLevel.information)
-//     .build();
+const connect = () => {
+  var connection = new HubConnectionBuilder()
+    .withUrl("http://localhost/5000/chat")
+    .configureLogging(LogLevel.information)
+    .build();
 
-//   connection.on("RecieveMessage", (user, message) => {
-//     console.Log(message);
-//   });
+  connection.on("RecieveMessage", (user, message) => {
+    console.Log(message);
+  });
 
-//   connection.Start();
-//   connection.invoke("SendMessage");
-// };
+  connection.Start();
+  connection.invoke("SendMessage");
+};
 
 const ChatBox = () => {
+  
   const [isOpen, setIsOpen] = useState(false);
 
   const onClick = () => {
